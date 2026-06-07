@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Physics Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E6E6FA; /* Pale Violet */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-container {
+            background-color: #800000; /* Claret */
+            color: #FFBF00; /* Amber */
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px solid black;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 1200px; /* Increased max-width for 3 columns */
+            box-sizing: border-box;
+        }
+
+        .main-title {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            font-size: 1.5em;
+            color: #F1D4D4; /* Blush Pink */
+        }
+
+        .subheader-container {
+            background-color: #B5A6C5; 
+            color: black;
+            padding: 5px 20px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid black;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+            margin: 0 0 20px 0; /* Top and Bottom margin */
+            width: 100%;
+            max-width: 800px; /* Max width as requested */
+            box-sizing: border-box;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px; 
+        }
+
+        .app-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid black;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 300px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .app-card h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .app-card p {
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .launch-button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            
+            /* 1. Darker border for contrast */
+            border: 1px solid #600000; 
+            
+            /* 2. Gradient background */
+            background: linear-gradient(to bottom, #B03A2E 0%, #800000 100%);
+            
+            /* 3. Drop shadow + Bevel (inset shadow) */
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            
+            /* Add depth to the text */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            
+            /* Positioning for the shine effect */
+            position: relative;
+            overflow: hidden;
+            
+            /* Smooth transitions for hover/active states */
+            transition: all 0.2s ease-out;
+        }
+
+        /* 4. Shine effect pseudo-element */
+        .launch-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            /* The shine itself: a diagonal gradient */
+            background: linear-gradient(
+                100deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent 60%
+            );
+            /* Start off-screen */
+            transform: translateX(-100%) rotate(20deg);
+            transition: none; /* No transition by default */
+        }
+
+        .launch-button:hover {
+            /* Brighter gradient on hover */
+            background: linear-gradient(to bottom, #c04a3e 0%, #901010 100%);
+            /* "Lift" the button slightly */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35), 
+                        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* 4. Trigger the shine animation on hover */
+        .launch-button:hover::after {
+            transform: translateX(100%) rotate(20deg);
+            transition: transform 0.6s ease-in-out;
+        }
+
+        /* "Pressed" effect */
+        .launch-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 
+                        inset 0 1px 1px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to bottom, #800000 0%, #901010 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="main-title">Strathaven Academy Physics Department</div>
+        <div class="sub-title">Delta Revision App Menu</div>
+    </div>
+
+    <div class="subheader-container">
+        Revision Apps
+    </div>
+
+    <div class="menu-container" style="margin-bottom: 40px;"> 
+        
+        <div class="app-card">
+            <h2>Delta Physics:<br>Higher</h2>
+            <p>A quiz app that presents all the SQA multiple choice questions for the Higher Course. Questions can be chosen by year, by topic, or by unit, and progress can be tracked between sessions.</p>
+            <a href="./mc physics higher/index.html" class="launch-button">Launch App</a>
+        </div>
+        
+        <div class="app-card">
+            <h2>Delta Physics:<br>National 5</h2>
+            <p>A quiz app that presents all the SQA multiple choice questions for the Nat5 course. Questions can be chosen by year, by topic, or by unit, and progress can be tracked between sessions.</p>
+            <a href="./mc physics nat5/index.html" class="launch-button">Launch App</a>
+        </div>
+
+	</div>
+
+</body>
+</html>
